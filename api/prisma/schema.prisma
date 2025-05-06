@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+enum TipoDado {
+  STRING
+  NUMBER
+  BOOLEAN
+  DATE
+}
+
+
+model Campo {
+  id        String   @id @default(uuid()) @map("_id")
+  name      String   @unique
+  datatype  TipoDado
+  createdAt DateTime @default(now())
+  preenchimentos Preenchimento[]
+}
+
+model Preenchimento {
+  id        String   @id @default(uuid()) @map("_id")
+  fieldId   String
+  value     Json
+  createdAt DateTime @default(now())
+  campo     Campo    @relation(fields: [fieldId], references: [id])
+}
