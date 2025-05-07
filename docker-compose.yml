@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    command: ["mongod", "--replSet", "rs0"]
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build: ./api
+    container_name: api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_URL=mongodb+srv://brasao:051201@freecluster.oh8ernh.mongodb.net/brasao?retryWrites=true&w=majority&appName=FreeCluster
+      - NODE_ENV=development
+
+  frontend:
+    build: ./react
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+    volumes:
+      - ./react:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+
+volumes:
+  mongo_data:

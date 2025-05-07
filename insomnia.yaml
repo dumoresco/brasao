@@ -1,0 +1,132 @@
+type: collection.insomnia.rest/5.0
+name: Brasão Sistemas
+meta:
+  id: wrk_45a9d50ef2e84f26a7e02398a06fff68
+  created: 1746544842436
+  modified: 1746544842436
+collection:
+  - url: "{{ _.base_url }}/campos"
+    name: Campos
+    meta:
+      id: req_d6a07b1f967c4e51a0b5de994a279ea9
+      created: 1746544874240
+      modified: 1746548357676
+      isPrivate: false
+      sortKey: -1746544874227.5
+    method: GET
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/campos"
+    name: Campos
+    meta:
+      id: req_e4a9f5a94d294232b5714e793055aa1a
+      created: 1746545300112
+      modified: 1746549940014
+      isPrivate: false
+      sortKey: -1746544874190
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name":"Campo 2",
+        	"datatype": "NUMBER"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/preenchimentos"
+    name: Preenchimentos
+    meta:
+      id: req_c4117af5acd24b2ca08d459e05ff6f5c
+      created: 1746546180664
+      modified: 1746546307759
+      isPrivate: false
+      sortKey: -1746544874140
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"fieldId":"c4227243-0c68-435c-b523-470898c2cfa0",
+        	"value": "Valor 1"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/preenchimentos"
+    name: Preenchimentos
+    meta:
+      id: req_a8d7d37fba234544b545e1618fe7411d
+      created: 1746546322973
+      modified: 1746546326059
+      isPrivate: false
+      sortKey: -1746544874215
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"as":"asdas"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_da201802c07bd6e8bfcf7b67288a609d48e66211
+    created: 1746544842438
+    modified: 1746544842438
+environments:
+  name: Base Environment
+  meta:
+    id: env_da201802c07bd6e8bfcf7b67288a609d48e66211
+    created: 1746544842438
+    modified: 1746545164148
+    isPrivate: false
+  data:
+    base_url: http://localhost:8000
