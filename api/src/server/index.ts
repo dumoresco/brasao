@@ -11,7 +11,12 @@ import { makeListFillersController } from "../factories/makeListFillerController
 
 const app = express();
 
-app.use(express.json());
+app.use(
+  cors({
+    origin: "*", // Permite que qualquer origem acesse a API
+  })
+);
+
 app.use(cors());
 
 const router = express.Router();
