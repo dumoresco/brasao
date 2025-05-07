@@ -40,6 +40,12 @@ Constura a imagem docker
  sudo docker-compose build --no-cache       
 ```
 
+Inicie a imagem
+```bash
+ sudo docker-compose up
+```
+
+
 Acesse:
 
 Front-end: http://localhost:5173
