@@ -13,11 +13,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*", // Permite que qualquer origem acesse a API
+    origin: "*",
   })
 );
-
-app.use(cors());
+app.use(express.json());
 
 const router = express.Router();
 

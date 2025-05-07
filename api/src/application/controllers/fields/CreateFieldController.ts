@@ -12,7 +12,6 @@ export class CreateFieldController implements IController {
   async handle({ body }: IRequest): Promise<IResponse> {
     try {
       const { name, datatype } = campoSchema.parse(body);
-
       const {
         id,
         createdAt,

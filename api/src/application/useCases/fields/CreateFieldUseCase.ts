@@ -25,6 +25,7 @@ export class CreateFieldUseCase {
       },
     });
 
+    console.log("Field exists:", fieldExists);
     if (fieldExists) {
       throw new FieldAlreadyExistsError();
     }
@@ -35,6 +36,8 @@ export class CreateFieldUseCase {
         datatype: datatype,
       },
     });
+
+    console.log("Field created:", field);
     return {
       id: field.id,
       name: field.name,
