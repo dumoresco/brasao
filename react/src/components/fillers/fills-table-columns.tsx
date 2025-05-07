@@ -26,10 +26,11 @@ export const fillTableColumns: ColumnDef<Fill>[] = [
       const { name, datatype } =
         fieldsCache?.find((field) => field.id === fieldId) || {};
       return (
-        <div className="flex flex-col">
+        <div className="flex gap-2 items-center">
           <span className="font-semibold flex items-center ">
             {(name as string) || (fieldId as string)}
           </span>
+          •
           <span className="bg-muted w-fit px-2 py-1 rounded border">
             {datatype as string}
           </span>

@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 function App() {
   return (
     <div>
-      <div className="container m-auto">
+      <div className="container m-auto px-4 md:px-0">
         <Header />
         <Tabs defaultValue="campos" className="">
           <TabsList className=" w-full">
