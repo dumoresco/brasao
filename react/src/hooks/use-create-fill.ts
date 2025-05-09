@@ -1,15 +1,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { z } from "zod";
 import { api } from "../lib/api";
-import type { fillSchema } from "@/components/fillers/add-new-fill";
 
 export const useCreateFill = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (payload: z.infer<typeof fillSchema>) => {
+    mutationFn: async (payload: any) => {
       const { fieldId, value } = payload;
 
       const { data } = await api.post("/preenchimentos", {
