@@ -14,7 +14,7 @@
 - [React Hook Form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
 - [Prisma](https://www.prisma.io/)
-- [Node.js](https://nodejs.org/)
+- [Node.js v22](https://nodejs.org/)
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 
