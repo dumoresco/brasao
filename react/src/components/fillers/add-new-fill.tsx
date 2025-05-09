@@ -38,45 +38,6 @@ import { StringInput } from "./inputs/string-input";
 import { useCreateFill } from "@/hooks/use-create-fill";
 import type { Campo } from "../fields/fields-table-columns";
 
-export const fillSchema = z
-  .object({
-    fieldId: z.string().min(1, {
-      message: "O campo deve ser selecionado.",
-    }),
-    value: z.union([z.string(), z.number(), z.boolean(), z.date()]),
-  })
-  .refine(
-    (data) => {
-      const queryClient = useQueryClient();
-      const fieldsCache = queryClient.getQueryData<Campo[]>(["fields"]);
-
-      if (!fieldsCache) return true;
-
-      const { datatype } =
-        fieldsCache.find((field) => field.id === data.fieldId) || {};
-
-      switch (datatype) {
-        case "NUMBER":
-          return !isNaN(Number(data.value));
-        case "BOOLEAN":
-          return (
-            typeof data.value === "string" &&
-            ["true", "false"].includes(data.value.toLowerCase())
-          );
-        case "DATE":
-          return (
-            typeof data.value === "string" && !isNaN(Date.parse(data.value))
-          );
-        default:
-          return true;
-      }
-    },
-    {
-      message: "Valor inválido para o tipo de dado selecionado.",
-      path: ["value"],
-    }
-  );
-
 export const AddNewFill = () => {
   const queryClient = useQueryClient();
   const fieldsCache = queryClient.getQueryData<Campo[]>(["fields"]);
@@ -115,6 +76,7 @@ export const AddNewFill = () => {
         }
       );
   }, [fieldsCache]);
+
   const isMobile = useIsMobile();
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const form = useForm<z.infer<typeof fillSchema>>({
